@@ -1,0 +1,290 @@
+/* Reset defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    line-height: 1.6;
+    background-color: #1a1a1a;
+}
+
+/* Snap Container */
+.snap-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+/* Snap Sections */
+.snap-section {
+    scroll-snap-align: start;
+    min-height: 100vh; /* Default for most sections */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2rem;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    position: relative;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-in;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    color: #ccc;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Skills Section */
+.skills {
+    background-color: #1a1a1a;
+}
+
+.skills-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: slideIn 1s ease-out;
+}
+
+.skills-list {
+    list-style: none;
+    display: block;
+}
+
+.skill-card {
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.skill-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.skill-bar {
+    background-color: #333;
+    height: 8px;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-bar-fill {
+    background: linear-gradient(90deg, #6b48ff, #00ddeb);
+    height: 100%;
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+.skill-bar-fill.html { width: 90%; }
+.skill-bar-fill.css { width: 80%; }
+.skill-bar-fill.js { width: 60%; }
+
+/* Projects Section */
+.projects {
+    background-color: #1a1a1a;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: #222;
+    padding: 2rem;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(0,221,235,0.3);
+}
+
+.project-card h3 {
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+.project-card p {
+    margin: 0.5rem 0;
+    color: #ccc;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #00ddeb;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.project-link:hover {
+    color: #fff;
+}
+
+/* Contact Section (Footer) */
+.contact {
+    background-color: #111;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-top: 1px solid #333;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.contact.snap-section {
+    min-height: auto; /* Compact height for footer */
+    justify-content: center; /* Center content vertically */
+    align-items: center;
+    padding: 1.5rem 2rem; /* Override default snap-section padding */
+}
+
+.contact h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact p {
+    margin: 0.3rem 0;
+    font-size: 1rem;
+}
+
+.contact a {
+    color: #00ddeb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.contact a:hover {
+    color: #fff;
+}
+
+/* Button Styling */
+.cta {
+    background: linear-gradient(90deg, #6b48ff, #00ddeb);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.cta:hover {
+    transform: scale(1.05);
+}
+
+/* Hire Message */
+.hire-message {
+    margin-top: 1rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.visible {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .snap-section {
+        padding: 2rem 1rem;
+    }
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .skills-wrapper {
+        padding: 1.5rem;
+    }
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    .skill-card h4 {
+        font-size: 1rem;
+    }
+    .skill-bar {
+        height: 6px;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .contact {
+        padding: 1rem;
+    }
+    .contact h2 {
+        font-size: 1.5rem;
+    }
+    .contact p {
+        font-size: 0.9rem;
+    }
+}
